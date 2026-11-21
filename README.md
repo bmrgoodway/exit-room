@@ -1,4 +1,48 @@
-# 방탈출 · 개발 안내
+# 별무리 방탈출 · 정전의 밤, 15개의 봉인
+
+충남 금산 **별무리 마을**과 **별무리학교**를 무대로 한 15스테이지 스토리 퍼즐 방탈출입니다.
+로그인·서버 없이 순수 클라이언트로 동작하며, 진행 상황은 `localStorage`(`exit-room:` 접두사)에만 저장됩니다.
+
+- 배포: https://bmrgoodway.github.io/exit-room/
+- 스택: Vite + 바닐라 JS + Pretendard, 외부 CDN·오디오 파일 없음(효과음은 Web Audio 로 생성)
+- 디자인: GOODWAY APPS 네오브루탈리즘(0px 모서리, 2px 선, 하드 그림자, `#0abbee`·`#ffdc1a`·`#02c245`·`#ff614a`·`#7e65c1`)
+
+## 화면과 코드
+
+| 경로 | 내용 |
+|---|---|
+| `src/main.js` | 해시 라우터(`#/`, `#/map`, `#/stage/N`, `#/clear`), 홈·지도·방·결과 화면, 일지·메모 시트 |
+| `src/game/state.js` | 진행도·시간·힌트·메모 저장, 등급 계산 |
+| `src/game/audio.js` | Web Audio 효과음(종소리·물소리·해제음), 소리 토글 |
+| `src/game/ui.js` | 토스트·시트·타이머 표기 등 공통 도구 |
+| `src/game/stages/s01~s15.js` | 방마다 하나의 퍼즐(마운트·검증·3단계 힌트·SVG 삽화) |
+| `src/game/stages/index.js` | 15개 방 목록 |
+
+## 방 추가·수정
+
+`src/game/stages/` 에 아래 모양의 모듈을 만들고 `index.js` 배열에 넣으면 됩니다.
+
+```js
+export default {
+  n: 16, place: '장소', title: '제목', tagline: '한 줄 설명',
+  intro: '이야기', clue: { title: '단서', text: '일지에 남을 단서' }, fragment: '기억의 조각 한 줄',
+  hints: ['가벼운 힌트', '핵심 힌트', '정답'],
+  art: () => '<svg …>',
+  mount(root, api) { /* 퍼즐 UI; 정답이면 api.solve(), 틀리면 api.wrong('…') */ },
+};
+```
+
+`api` 는 `solve()`, `wrong(msg)`, `ok(msg)`, `sfx` 를 제공합니다.
+
+## 확인
+
+```bash
+npm run build                 # 빌드
+node scripts/bmr-check.mjs    # 공용 주소 점검(경고 0건)
+```
+
+---
+
 
 BMR APPS 에서 준비해 드린 **빈 개발 환경**입니다. 화면, 데이터 구조, 로그인 규칙은 모두 개발자가 직접 정해서 만드시면 됩니다.
 지금 앱 주소에는 **'준비 중인 페이지입니다'** 라는 간단한 안내만 보입니다. `index.html` 을 내 앱 화면으로 바꿔 올리면 바로 바뀝니다.

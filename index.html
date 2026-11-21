@@ -1,33 +1,79 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>방탈출 · 준비 중 · BMR APPS</title>
-<meta name="description" content="방탈출 — 준비 중인 페이지입니다 (BMR APPS)">
-<meta name="theme-color" content="#0abbee">
+<title>별무리 방탈출 · 정전의 밤, 15개의 봉인</title>
+<meta name="description" content="충남 금산 별무리 마을과 별무리학교를 무대로 한 15스테이지 스토리 퍼즐 방탈출. 로그인 없이 바로 플레이하고, 진행은 이 브라우저에 저장됩니다.">
+<meta name="theme-color" content="#0b1020">
+<meta name="color-scheme" content="dark light">
 <meta name="robots" content="noindex">
-<link rel="icon" href="https://wjvqavianqceeyyxonfg.supabase.co/functions/v1/hub-favicon?slug=exit-room">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 </head>
 <body>
-<!-- 준비 중 안내 페이지입니다. 앱을 만들면 이 파일(index.html)을 내 앱 화면으로 바꾸세요.
-     개발에 필요한 정보는 BMR APPS 허브의 '내 서비스 정보 → 개발 정보'와 저장소 README.md 에 있습니다. -->
+<a class="skip" href="#main">본문으로 바로 가기</a>
+
 <header class="top">
-  <a class="mark" href="https://bmrgoodway.github.io/" aria-label="BMR APPS 메인 화면"><span>BMR</span><span>APPS</span></a>
+  <a class="mark" href="./" id="logo-home" aria-label="별무리 방탈출 처음 화면으로">
+    <svg viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false">
+      <rect x="1" y="1" width="46" height="46" fill="#0abbee" stroke="#0d0f14" stroke-width="2"/>
+      <path d="M24 6.5 L27.6 17.4 L38.5 21 L27.6 24.6 L24 35.5 L20.4 24.6 L9.5 21 L20.4 17.4 Z" fill="#ffdc1a" stroke="#0d0f14" stroke-width="1.8"/>
+      <rect x="21.6" y="33.5" width="4.8" height="9.5" fill="#fff8d6" stroke="#0d0f14" stroke-width="1.6"/>
+      <rect x="26.4" y="37.6" width="4.6" height="2.6" fill="#fff8d6" stroke="#0d0f14" stroke-width="1.4"/>
+      <rect x="26.4" y="41.2" width="3.2" height="2.2" fill="#fff8d6" stroke="#0d0f14" stroke-width="1.4"/>
+      <circle cx="12" cy="9" r="1.5" fill="#fff"/>
+      <circle cx="38" cy="35" r="1.2" fill="#fff"/>
+      <circle cx="9" cy="31" r="1" fill="#fff"/>
+    </svg>
+  </a>
+  <div class="brand">
+    <b>별무리 방탈출</b>
+    <small>GOODWAY APPS · 15 SEALS</small>
+  </div>
+
+  <div class="hud" id="hud" aria-live="polite">
+    <span class="hud-item" title="플레이 시간"><span class="hud-k">시간</span><b id="hud-time">00:00</b></span>
+    <span class="hud-item" title="연 방의 수"><span class="hud-k">봉인</span><b id="hud-progress">0/15</b></span>
+    <span class="hud-item" id="hud-hint-wrap" title="사용한 힌트"><span class="hud-k">힌트</span><b id="hud-hint">0</b></span>
+  </div>
+
+  <nav class="nav" aria-label="게임 메뉴">
+    <a class="nav-item" href="#/map" data-nav="map">지도</a>
+    <button type="button" class="nav-item" id="btn-journal">일지</button>
+    <button type="button" class="nav-item" id="btn-notes">메모</button>
+    <button type="button" class="icon-btn" id="btn-sound" aria-pressed="true" aria-label="효과음 켜짐" title="효과음">
+      <span aria-hidden="true" id="sound-icon">♪</span>
+    </button>
+    <button type="button" class="icon-btn" id="btn-theme" aria-pressed="true" aria-label="밤 화면" title="밤/낮 화면">
+      <span aria-hidden="true" id="theme-icon">☾</span>
+    </button>
+  </nav>
 </header>
-<main class="wrap">
-  <section class="hero">
-    <div class="copy">
-      <span class="eyebrow">준비 중</span>
-      <h1 data-app-name>방탈출</h1>
-      <p class="desc" data-app-desc hidden></p>
-      <p class="notice"><b>준비 중인 페이지입니다.</b> 곧 이 주소에서 서비스를 열 예정이에요.</p>
-      <a class="btn" href="https://bmrgoodway.github.io/">BMR APPS 서비스 둘러보기</a>
-    </div>
-    <div class="art" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i></div>
-  </section>
+
+<main id="main" tabindex="-1">
+  <noscript><p class="wrap notice-strong">이 게임은 브라우저에서 바로 실행됩니다. 자바스크립트를 켜 주세요.</p></noscript>
+  <div id="app" class="app"><div class="boot">별무리 마을에 불이 꺼지고 있습니다…</div></div>
 </main>
-<footer class="foot">별무리 개발자들이 함께 만들고 나누는 공간 · <a href="https://bmrgoodway.github.io/">BMR APPS</a></footer>
+
+<footer class="foot">
+  <p><b>별무리 방탈출</b> — 정전의 밤, 15개의 봉인 · <span class="foot-brand">GOODWAY APPS</span></p>
+  <p class="foot-src">무대: 충남 금산군 남일면 신동리 별무리 마을 · 별무리학교 · 별무리교회 · 이든 카페·베이커리 · 독립서점 · ALTSIS · 별드림관</p>
+  <p class="foot-src">로그인 없이 플레이하며, 진행 상황은 이 브라우저에만 저장됩니다.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<div class="sheet" id="sheet" hidden aria-hidden="true">
+  <div class="sheet-back" data-close="1"></div>
+  <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <header class="sheet-head">
+      <h2 id="sheet-title">일지</h2>
+      <button type="button" class="icon-btn" id="sheet-close" aria-label="닫기">✕</button>
+    </header>
+    <div class="sheet-body" id="sheet-body"></div>
+  </section>
+</div>
+
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>
