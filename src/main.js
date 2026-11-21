@@ -24,7 +24,7 @@ function applyTheme(theme) {
   const icon = $('#theme-icon');
   const night = theme === 'night';
   if (btn) {
-    btn.setAttribute('aria-pressed', String(night));
+    btn.setAttribute('aria-pressed', String(!night));
     btn.setAttribute('aria-label', night ? '낮 화면으로 바꾸기' : '밤 화면으로 바꾸기');
   }
   if (icon) icon.textContent = night ? '☾' : '☀';
