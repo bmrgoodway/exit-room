@@ -1,0 +1,12 @@
+{
+  "slug": "exit-room",
+  "name": "방탈출",
+  "schema": "exit_room",
+  "db_role": "exit_room_dev",
+  "bucket": "exit-room",
+  "function": "exit-room-fn",
+  "secret_prefix": "EXIT_ROOM_",
+  "supabase_ref": "wjvqavianqceeyyxonfg",
+  "url": "https://bmrgoodway.github.io/exit-room/",
+  "template": "bmr-app-templates v2"
+}
